@@ -1,0 +1,129 @@
+@prefix : <http://example.org/fractions#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Ontology Header
+#################################################################
+
+<http://example.org/fractions>
+      rdf:type owl:Ontology .
+
+#################################################################
+# Classes
+#################################################################
+
+:Fraction rdf:type owl:Class .
+:Numerator rdf:type owl:Class .
+:Denominator rdf:type owl:Class .
+:DecimalValue rdf:type owl:Class .
+
+#################################################################
+# Object Properties
+#################################################################
+
+:hasNumerator rdf:type owl:ObjectProperty ;
+              rdfs:domain :Fraction ;
+              rdfs:range :Numerator .
+
+:hasDenominator rdf:type owl:ObjectProperty ;
+                rdfs:domain :Fraction ;
+                rdfs:range :Denominator .
+
+:convertsTo rdf:type owl:ObjectProperty ;
+            rdfs:domain :Fraction ;
+            rdfs:range :DecimalValue .
+
+#################################################################
+# Data Properties
+#################################################################
+
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string .
+
+#################################################################
+# Individuals
+#################################################################
+
+######## Fraction 1/2 ########
+
+:fraction_1_2 rdf:type :Fraction ;
+    :hasNumerator :numerator_1 ;
+    :hasDenominator :denominator_2 ;
+    :convertsTo :decimal_0_5 .
+
+:numerator_1 rdf:type :Numerator ;
+    :hasValue "1" .
+
+:denominator_2 rdf:type :Denominator ;
+    :hasValue "2" .
+
+:decimal_0_5 rdf:type :DecimalValue ;
+    :hasValue "0.5" .
+
+
+
+:fraction_1_4 rdf:type :Fraction ;
+    :hasNumerator :numerator_1_4_n ;
+    :hasDenominator :denominator_1_4_d ;
+    :convertsTo :decimal_0_25 .
+
+:numerator_1_4_n rdf:type :Numerator ;
+    :hasValue "1" .
+
+:denominator_1_4_d rdf:type :Denominator ;
+    :hasValue "4" .
+
+:decimal_0_25 rdf:type :DecimalValue ;
+    :hasValue "0.25" .
+
+
+
+:fraction_3_4 rdf:type :Fraction ;
+    :hasNumerator :numerator_3 ;
+    :hasDenominator :denominator_4 ;
+    :convertsTo :decimal_0_75 .
+
+:numerator_3 rdf:type :Numerator ;
+    :hasValue "3" .
+
+:denominator_4 rdf:type :Denominator ;
+    :hasValue "4" .
+
+:decimal_0_75 rdf:type :DecimalValue ;
+    :hasValue "0.75" .
+
+
+
+:fraction_1_3 rdf:type :Fraction ;
+    :hasNumerator :numerator_1_3_n ;
+    :hasDenominator :denominator_1_3_d ;
+    :convertsTo :decimal_0_333_repeat .
+
+:numerator_1_3_n rdf:type :Numerator ;
+    :hasValue "1" .
+
+:denominator_1_3_d rdf:type :Denominator ;
+    :hasValue "3" .
+
+:decimal_0_333_repeat rdf:type :DecimalValue ;
+    :hasValue "0.333..." .
+
+
+
+:fraction_2_5 rdf:type :Fraction ;
+    :hasNumerator :numerator_2 ;
+    :hasDenominator :denominator_5 ;
+    :convertsTo :decimal_0_4 .
+
+:numerator_2 rdf:type :Numerator ;
+    :hasValue "2" .
+
+:denominator_5 rdf:type :Denominator ;
+    :hasValue "5" .
+
+:decimal_0_4 rdf:type :DecimalValue ;
+    :hasValue "0.4" .
+
